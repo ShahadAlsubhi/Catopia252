@@ -20,7 +20,7 @@ public class Client {
         String password  = scanner.nextLine();
         
         // Authenticate users using the proxy
-        boolean userAuthenticated = authenticateUser(proxyVerifier, username, password );
+        boolean userAuthenticated = proxyVerifier.verifyAccount(username, password);
         
         if(userAuthenticated==true){
             System.out.println("User authenticated successfully!");
@@ -30,9 +30,6 @@ public class Client {
         
     }
 
-    private static boolean authenticateUser(AccountVerifier verifier, String username, String password) {
-        // Use the provided AccountVerifier (either real or proxy) to authenticate the user
-        return verifier.verifyAccount(username, password);
-    }
+    
 }
 
