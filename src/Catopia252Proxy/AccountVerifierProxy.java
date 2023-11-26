@@ -1,27 +1,27 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Catopia252Proxy;
 
 public class AccountVerifierProxy implements AccountVerifier {
-    private RealAccountVerifier realAccountVerifier;
+    private RealAccountVerifier realVerifier;
+
+    public AccountVerifierProxy(RealAccountVerifier realVerifier) {
+        this.realVerifier = realVerifier;
+    }
 
     @Override
-    public void verifyAccount(String username, String password) {
-        if (authenticateUser(username, password)) {
-            if (realAccountVerifier == null) {
-                realAccountVerifier = new RealAccountVerifier();
-            }
-            realAccountVerifier.verifyAccount(username, password);
+    public boolean verifyAccount(String username, String password) {
+        // Additional checks before allowing the verification to proceed
+        if (isValidUsername(username)) {
+            return realVerifier.verifyAccount(username, password);
         } else {
-            System.out.println("Authentication failed. Unable to verify account.");
+            System.out.println("Invalid username: " + username);
+            return false;
         }
     }
 
-    private boolean authenticateUser(String username, String password) {
-        // Perform authentication logic, e.g., check credentials against a database
-        // ...
-        return true; // Return true for the sake of the example; actual implementation depends on your requirements.
+    private boolean isValidUsername(String username) {
+        // Additional checks for valid username
+        // checking if the username is not empty and meets certain criteria
+        return username != null && !username.isEmpty() && username.matches("[a-zA-Z0-9]+");
     }
 }

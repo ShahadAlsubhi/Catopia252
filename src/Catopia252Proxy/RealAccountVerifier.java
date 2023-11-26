@@ -1,15 +1,28 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Catopia252Proxy;
 
+import java.util.*;
+
+// RealSubject (Original Object)
 public class RealAccountVerifier implements AccountVerifier {
+
+    private Map<String, String> userDatabase; // Simulating a simple in-memory user database
+
+    public RealAccountVerifier() {
+        userDatabase = new HashMap<>();
+        // Pre-populate the database with sample user data (username, password)
+        userDatabase.put("user123", "password123");
+        userDatabase.put("johnDoe", "secretPass");
+        userDatabase.put("catLover", "cat123");
+    }
+
     @Override
-    public void verifyAccount(String username, String password) {
-        // Actual implementation of account verification logic
-        // ...
-        System.out.println("Account verified successfully.");
+    public boolean verifyAccount(String username, String password) {
+        
+        // Simulating a basic username-password check
+        String storedPassword = userDatabase.get(username);
+
+        return storedPassword != null && storedPassword.equals(password);
     }
 }
 
