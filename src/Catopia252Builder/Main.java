@@ -19,9 +19,12 @@ import java.util.Scanner;
         String catName = scanner.nextLine();
 
         // Create a Cat profile using the Builder pattern with user-input attributes
-        Cat cat = new Cat.CatBuilder(catId, catName)
+       Cat.CatBuilder catBuilder = new Cat.CatBuilder()
+                .setcatId(catId)
+                .setcatName(catName);
                 // Set other attributes from user input
-                .build();
+                 // Build the Cat profile
+        Cat cat = catBuilder.build();
 
         // Use the created Cat profile
         System.out.println("Cat profile:");
