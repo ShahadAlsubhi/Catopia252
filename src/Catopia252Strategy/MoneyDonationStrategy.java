@@ -2,9 +2,9 @@ package Catopia252Strategy;
 
 import java.util.Scanner;
 
-public class DonationStrategy {
+public class MoneyDonationStrategy {
 
-        public Donation checkout(double amount) {
+        public MoneyDonationMethod checkout(double amount) {
             String command = null;
 
             System.out.println("\nPlease select your payment method:\n" +

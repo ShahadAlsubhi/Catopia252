@@ -1,6 +1,6 @@
 package Catopia252Strategy;
 
-public interface Donation {
+public interface MoneyDonationMethod {
 
     void pay(double amount);
 }

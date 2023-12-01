@@ -1,6 +1,6 @@
 package Catopia252Strategy;
 
-public class Visa implements Donation {
+public class Visa implements MoneyDonationMethod {
     private double amount;
     public  Visa(double amount) {
         this.amount = amount;

@@ -1,6 +1,6 @@
 package Catopia252Strategy;
 
-public class PayPal implements Donation {
+public class PayPal implements MoneyDonationMethod {
     private double amount;
 
     public PayPal(double amount) {

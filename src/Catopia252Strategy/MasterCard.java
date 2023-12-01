@@ -1,6 +1,6 @@
 package Catopia252Strategy;
 
-public class MasterCard implements Donation {
+public class MasterCard implements MoneyDonationMethod {
     private double amount;
     public MasterCard(double amount) {
         this.amount = amount;
