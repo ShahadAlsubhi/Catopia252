@@ -7,6 +7,7 @@ package Catopia252Facade;
 
 public class Facade {
     public static void main(String[] args){
-        
+        Shelter obj= new Shelter();
+        obj.isVerification();
     }
 }

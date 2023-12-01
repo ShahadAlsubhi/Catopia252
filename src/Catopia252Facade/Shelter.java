@@ -6,6 +6,7 @@ package Catopia252Facade;
 
 
 import java.util.*;
+import Catopia252Proxy.Client;
 
 public class Shelter extends user{
     private String ShelterName;
@@ -27,8 +28,11 @@ public class Shelter extends user{
         return ShelterName;
     }
 
-    public boolean isVerification() {
-        return Verification;
+    public void isVerification() {
+        Client obj=new Client();
+        //obj.main(null);
+        String[] arg={};
+        Client.main(arg);
     }
 
     public ArrayList<String> getRecievedDonation() {
