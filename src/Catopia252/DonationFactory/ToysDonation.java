@@ -6,16 +6,16 @@ public class ToysDonation implements Donation{
 
     private String donationType;
     private Date donationDate;
-    private String userID;
-    private String shelterID;
+    private String userName;
+    private String shelterName;
     private String condition;
     private String size;
 
     public ToysDonation(String donationType, Date donationDate, String userID, String shelterID, String condition, String size) {
         this.donationType = donationType;
         this.donationDate = donationDate;
-        this.userID = userID;
-        this.shelterID = shelterID;
+        this.userName = userID;
+        this.shelterName = shelterID;
         this.condition = condition;
         this.size = size;
     }
@@ -27,6 +27,11 @@ public class ToysDonation implements Donation{
         System.out.println("Thank you for your donation!");
 
 
+    }
+
+    @Override
+    public String getDonationType() {
+        return donationType;
     }
 
 }
