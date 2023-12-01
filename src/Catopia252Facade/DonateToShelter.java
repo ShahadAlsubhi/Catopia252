@@ -7,6 +7,9 @@ package Catopia252Facade;
 
 import Catopia252.DonationFactory.Donation;
 import Catopia252.DonationFactory.DonationFactory;
+import Catopia252Strategy.MoneyDonationMethod;
+import Catopia252Strategy.MoneyDonationStrategy;
+
 import java.util.Scanner;
 import java.time.LocalDate;
 import java.util.Scanner;
@@ -24,6 +27,10 @@ public class DonateToShelter {
         Donation dn = donationFactory.createDonation( donationType,  username,  shelterName);
 
         if (dn.getDonationType().equalsIgnoreCase("money")){
+            double amount = dn.getDonationAmount();
+            MoneyDonationStrategy donationStrategy= new MoneyDonationStrategy();
+            MoneyDonationMethod donationMethod = donationStrategy.checkout(amount);
+
 
         }
 

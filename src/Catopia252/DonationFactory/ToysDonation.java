@@ -34,4 +34,9 @@ public class ToysDonation implements Donation{
         return donationType;
     }
 
+    @Override
+    public double getDonationAmount() {
+        return 0;
+    }
+
 }

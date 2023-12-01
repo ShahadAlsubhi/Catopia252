@@ -15,10 +15,14 @@ public class MoneyDonationStrategy {
             Payment.nextLine();
             switch (command){
                 case "1":
+                    System.out.println("your donation throw Visa card was " +amount+ "dollars.");
                     return new Visa(amount);
+
                 case "2" :
+                    System.out.println("your donation throw Master card was " +amount+ "dollars.");
                     return new MasterCard(amount);
                 case "3" :
+                    System.out.println("your donation throw Paypal was " +amount+ "dollars.");
                     return new PayPal(amount);
                 default:
                     throw new IllegalStateException("Unexpected value: " + command);

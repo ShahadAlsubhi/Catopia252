@@ -29,5 +29,9 @@ public class MoneyDonation  implements Donation{
     public String getDonationType() {
         return donationType;
     }
+    @Override
+    public double getDonationAmount() {
+        return price;
+    }
 
 }
