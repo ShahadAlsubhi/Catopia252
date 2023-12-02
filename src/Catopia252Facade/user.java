@@ -5,6 +5,8 @@
 package Catopia252Facade;
 
 
+import Catopia252Builder.Cat;
+import Catopia252Builder.Cat.CatBuilder;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -97,7 +99,7 @@ public class user {
     public static void adoptionReq(Cat cat, Individual user, user owner) {
         Scanner input = new Scanner (System.in);
         // check if the conditions are met
-        if (!((user.getOwenedCats()).isEmpty()) == cat.isLikesCats() && user.isHasChildren() == cat.isLikesChildrens()) {
+        if (!((user.getOwenedCats()).isEmpty()) == cat.isLikesCats() && user.isHasChildren() == cat.isLikesChildren()) {
 
             if( owner instanceof Individual) {  //if the the user is adopting from an individual
 
@@ -151,13 +153,13 @@ public class user {
         Scanner input = new Scanner(System.in);
 // Prompt the user to enter cat info :
         System.out.println("Enter cat id: ");
-         int catId = input.nextInt();
+         String catId = input.next();
          System.out.println("Enter owner id: ");
          String ownerId = input.next();
         System.out.println("Enter cat name: "); 
          String catName = input.next();
         System.out.println("Enter cat sex: "); 
-         String sex = input.next();
+         char sex = input.next().charAt(0);
         System.out.println("Enter cat age: "); 
          int age = input.nextInt();
         System.out.println("Enter cat breed: "); 
@@ -181,12 +183,20 @@ public class user {
         System.out.println("Enter cat adoption Fees: ");  
          int adoptionFees = input.nextInt();
          
-           // Create Cat object :
-           Cat newCat = new Cat(catId,ownerId,catName, sex, age,breed,null,behavior,disabled,medicalHistory,likesCats,likesChildrens,adoptionState, adoptionReason,null, adoptionFees);
-           cats.add(newCat);
-        // Setting the cat’s bound after searching for it : 
-        Cat objectBound = newCat.Searchbound(CatBoundName,cats) ;
+         // Create a temp object of type Cat : 
+         Cat temp = new Cat.CatBuilder( catId , catName).build() ; // not used After that
+          // Setting the cat’s bound after searching for it : 
+        Cat objectBound = temp.Searchbound(CatBoundName,cats) ;
         cats.get(cats.size()-1).setBound(objectBound);
+           // Create Cat object :
+           Cat newCat = new Cat.CatBuilder( catId , catName)
+                .sex(sex)
+                .age(age)
+                .breed(breed)
+                .ownerID(ownerId)
+                .bonded(objectBound)
+                .build();
+           cats.add(newCat);
       // Add it to the cats database ( Arraylist ) :
         cats.get(cats.size()-1).addNewCattoDatabase(cats.get(cats.size()-1),cats) ;
      // Printing a message to the user :
@@ -287,7 +297,7 @@ public class user {
                 break;
             case 3:
                 System.out.println("what gender do you want to display ? ");
-                String gender=input.next();
+                char gender=input.next().charAt(0);
                 ArrayList<Cat> Filtered3=Cat.FilterByGender(gender,cats);
                  for(int i=0;i<Filtered3.size();i++){
                       System.out.println(Filtered3.get(i));
