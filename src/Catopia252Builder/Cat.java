@@ -6,61 +6,40 @@
 package Catopia252Builder;
 
 import java.util.ArrayList;
-
-// Cat class representing the profile
 public class Cat {
-    
-    private int catId;
-    private String ownerId;
-    private String catName;
-    private String sex;
+    // Attributes
+    private String catID;
+    private String name;
+    private char sex;
     private int age;
     private String breed;
-    private Cat bound;
+    private String ownerID;
+    private Cat bonded;
     private String behavior;
     private boolean disabled;
     private String medicalHistory;
     private boolean likesCats;
-    private boolean likesChildrens;
+    private boolean likesChildren;
     private String adoptionState;
     private String adoptionReason;
     private ArrayList<String> adoptionUpdates;
     private int adoptionFees;
 
-    // Private constructor to prevent direct instantiation
-    private Cat(CatBuilder builder) {
-        this.catId = builder.catId;
-        this.ownerId = builder.ownerId;
-        this.catName = builder.catName;
-        this.sex = builder.sex;
-        this.age = builder.age;
-        this.breed = builder.breed;
-        this.bound = builder.bound;
-        this.behavior = builder.behavior;
-        this.disabled = builder.disabled;
-        this.medicalHistory = builder.medicalHistory;
-        this.likesCats = builder.likesCats;
-        this.likesChildrens = builder.likesChildrens;
-        this.adoptionState = builder.adoptionState;
-        this.adoptionReason = builder.adoptionReason;
-        this.adoptionUpdates = builder.adoptionUpdates;
-        this.adoptionFees = builder.adoptionFees;
+    // Private constructor to enforce the use of the builder
+    private Cat() {
+        // Private constructor
     }
 
-  // Getter methods for Cat attributes
-    public int getCatId() {
-        return catId;
+    // Getter methods for Cat attributes
+    public String getCatID() {
+        return catID;
     }
 
-    public String getOwnerId() {
-        return ownerId;
+    public String getName() {
+        return name;
     }
 
-    public String getCatName() {
-        return catName;
-    }
-
-    public String getSex() {
+    public char getSex() {
         return sex;
     }
 
@@ -72,8 +51,12 @@ public class Cat {
         return breed;
     }
 
-    public Cat getBound() {
-        return bound;
+    public String getOwnerID() {
+        return ownerID;
+    }
+
+    public Cat getBonded() {
+        return bonded;
     }
 
     public String getBehavior() {
@@ -92,8 +75,8 @@ public class Cat {
         return likesCats;
     }
 
-    public boolean isLikesChildrens() {
-        return likesChildrens;
+    public boolean isLikesChildren() {
+        return likesChildren;
     }
 
     public String getAdoptionState() {
@@ -110,96 +93,89 @@ public class Cat {
 
     public int getAdoptionFees() {
         return adoptionFees;
-    }   
-    // Builder class for constructing Cat profile
+    }
+    // CatBuilder class
     public static class CatBuilder {
-        private int catId;
-        private String ownerId;
-        private String catName;
-        private String sex;
-        private int age;
-        private String breed;
-        private Cat bound;
-        private String behavior;
-        private boolean disabled;
-        private String medicalHistory;
-        private boolean likesCats;
-        private boolean likesChildrens;
-        private String adoptionState;
-        private String adoptionReason;
-        private ArrayList<String> adoptionUpdates;
-        private int adoptionFees;
+        private Cat cat;
 
-        // Builder constructor with mandatory parameters
-        public CatBuilder setcatId(int catId){
-            this.catId = catId;
+        public CatBuilder(String catID, String name) {
+            cat = new Cat();
+            cat.catID = catID;
+            cat.name = name;
+        }
+
+        public CatBuilder sex(char sex) {
+            cat.sex = sex;
             return this;
         }
-        public CatBuilder setcatName(String catName){
-        this.catName = catName;
-        return this;
-        }
-        // Setter methods for optional attributes
-        public CatBuilder setOwnerId(String ownerId) {
-            this.ownerId = ownerId;
+
+        public CatBuilder age(int age) {
+            cat.age = age;
             return this;
         }
-        public CatBuilder setSex(String sex) {
-            this.sex = sex;
+
+        public CatBuilder breed(String breed) {
+            cat.breed = breed;
             return this;
         }
-        public CatBuilder setage(int age){
-            this.age = age;
+
+        public CatBuilder ownerID(String ownerID) {
+            cat.ownerID = ownerID;
             return this;
         }
-        public CatBuilder setbreed(String breed){
-            this.breed = breed;
+
+        public CatBuilder bonded(Cat bonded) {
+            cat.bonded = bonded;
             return this;
         }
-        public CatBuilder setbound(Cat bound){
-            this.bound = bound;
+
+        public CatBuilder behavior(String behavior) {
+            cat.behavior = behavior;
             return this;
         }
-        public CatBuilder setbehavior(String behavior){
-            this.behavior = behavior;
+
+        public CatBuilder disabled(boolean disabled) {
+            cat.disabled = disabled;
             return this;
         }
-        public CatBuilder setdisabled(Boolean disabeld){
-            this.disabled = disabled;
+
+        public CatBuilder medicalHistory(String medicalHistory) {
+            cat.medicalHistory = medicalHistory;
             return this;
         }
-        public CatBuilder setmedicalHistory(String medicalHistory){
-            this.medicalHistory = medicalHistory;
+
+        public CatBuilder likesCats(boolean likesCats) {
+            cat.likesCats = likesCats;
             return this;
         }
-        public CatBuilder setlikesCats(Boolean likesCats){
-            this.likesCats = likesCats;
+
+        public CatBuilder likesChildren(boolean likesChildren) {
+            cat.likesChildren = likesChildren;
             return this;
         }
-        public CatBuilder setlikesChildrens(Boolean likesChildrens){
-            this.likesChildrens = likesChildrens;
+
+        public CatBuilder adoptionState(String adoptionState) {
+            cat.adoptionState = adoptionState;
             return this;
         }
-        public CatBuilder setadoptionState(String adoptionState){
-            this.adoptionState = adoptionState;
+
+        public CatBuilder adoptionReason(String adoptionReason) {
+            cat.adoptionReason = adoptionReason;
             return this;
         }
-        public CatBuilder setadoptionReason(String adoptionReason){
-            this.adoptionReason = adoptionReason;
+
+        public CatBuilder adoptionUpdates(ArrayList<String> adoptionUpdates) {
+            cat.adoptionUpdates = adoptionUpdates;
             return this;
         }
-        public CatBuilder setadoptionUpdates(ArrayList<String> adoptionUpdates){
-            this.adoptionUpdates = adoptionUpdates;
+
+        public CatBuilder adoptionFees(int adoptionFees) {
+            cat.adoptionFees = adoptionFees;
             return this;
         }
-        public CatBuilder setadoptionReason(int adoptionFees){
-            this.adoptionFees = adoptionFees;
-            return this;
-        }
-        // Method to build the Cat profile
+
         public Cat build() {
-            return new Cat(this);
+            return cat;
         }
     }
-
 }
