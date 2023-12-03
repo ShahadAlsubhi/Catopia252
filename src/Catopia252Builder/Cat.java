@@ -6,6 +6,7 @@
 package Catopia252Builder;
 
 import java.util.ArrayList;
+
 public class Cat {
     // Attributes
     private String catID;
@@ -29,7 +30,29 @@ public class Cat {
     private Cat() {
         // Private constructor
     }
+    public interface CatBuilder {
+    CatBuilder sex(char sex);
+    CatBuilder age(int age);
+    CatBuilder setCatId(int catId);
+    CatBuilder setOwnerId(String ownerId);
+    CatBuilder setCatName(String catName);
+    CatBuilder setSex(String sex);
+    CatBuilder setAge(int age);
+    CatBuilder setBreed(String breed);
+    CatBuilder setBound(Cat bound);
+    CatBuilder setBehavior(String behavior);
+    CatBuilder setDisabled(Boolean disabled);
+    CatBuilder setMedicalHistory(String medicalHistory);
+    CatBuilder setLikesCats(Boolean likesCats);
+    CatBuilder setLikesChildrens(Boolean likesChildrens);
+    CatBuilder setAdoptionState(String adoptionState);
+    CatBuilder setAdoptionReason(String adoptionReason);
+    CatBuilder setAdoptionUpdates(ArrayList<String> adoptionUpdates);
+    CatBuilder setAdoptionFees(int adoptionFees);
+        // Method to build the CatProfile object
+    Cat build();
 
+} 
     // Getter methods for Cat attributes
     public String getCatID() {
         return catID;
@@ -241,10 +264,10 @@ public class Cat {
         cats.add(cat) ;
       }
     // CatBuilder class
-    public static class CatBuilder {
+    public static abstract class ConcreateCatBuilder implements CatBuilder{
         private Cat cat;
 
-        public CatBuilder(String catID, String name) {
+        public ConcreateCatBuilder(String catID, String name) {
             cat = new Cat();
             cat.catID = catID;
             cat.name = name;
