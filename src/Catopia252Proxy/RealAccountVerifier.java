@@ -11,13 +11,14 @@ public class RealAccountVerifier implements AccountVerifier {
     public RealAccountVerifier() {
         // Pre-populate the database with sample usernames
         usernames = new String[] {"user123", "johnDoe", "catLover"};
+        
     }
 
     @Override
     public boolean verifyAccount(String username) {
        // Check if the provided username exists in the array
-        for (String storedUsername : usernames) {
-            if (storedUsername.equals(username)) {
+        for (int i = 0; i < usernames.length; i++) {
+            if (usernames[i].equals(username)) {
                 return true; // Username is a match
             }
         }
