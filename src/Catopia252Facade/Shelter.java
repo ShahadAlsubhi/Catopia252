@@ -28,11 +28,8 @@ public class Shelter extends user{
         return ShelterName;
     }
 
-    public void isVerification() {
-        Client obj=new Client();
-        //obj.main(null);
-        String[] arg={};
-       // Client.main(arg);
+    public boolean isVerification() {
+        return Verification;
     }
 
     public ArrayList<String> getRecievedDonation() {
