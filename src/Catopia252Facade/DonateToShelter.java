@@ -22,7 +22,7 @@ public class DonateToShelter {
         System.out.println("What shelter do you want to donate to? ");
         String shelterName =  scanner.nextLine();
         String[] arg={};
-        Client.main(arg);
+        Client.main(arg,shelterName);
         System.out.println("What type of donation will it be? (food, money or toys)");
         String donationType =  scanner.nextLine();
         

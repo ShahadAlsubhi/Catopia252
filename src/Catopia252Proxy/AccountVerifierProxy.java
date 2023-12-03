@@ -9,10 +9,10 @@ public class AccountVerifierProxy implements AccountVerifier {
     }
 
     @Override
-    public boolean verifyAccount(String username, String password) {
+    public boolean verifyAccount(String username) {
         // Additional checks before allowing the verification to proceed
         if (isValidUsername(username)) {
-            return realVerifier.verifyAccount(username, password);
+            return realVerifier.verifyAccount(username);
         } else {
             System.out.println("Invalid username: " + username);
             return false;

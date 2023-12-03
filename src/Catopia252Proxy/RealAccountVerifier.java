@@ -6,23 +6,22 @@ import java.util.*;
 // RealSubject (Original Object)
 public class RealAccountVerifier implements AccountVerifier {
 
-    private Map<String, String> userDatabase; // Simulating a simple in-memory user database
+    private String[] usernames; // Simulating a simple in-memory user database
 
     public RealAccountVerifier() {
-        userDatabase = new HashMap<>();
-        // Pre-populate the database with sample user data (username, password)
-        userDatabase.put("user123", "password123");
-        userDatabase.put("johnDoe", "secretPass");
-        userDatabase.put("catLover", "cat123");
+        // Pre-populate the database with sample usernames
+        usernames = new String[] {"user123", "johnDoe", "catLover"};
     }
 
     @Override
-    public boolean verifyAccount(String username, String password) {
-        
-        // Simulating a basic username-password check
-        String storedPassword = userDatabase.get(username);
-
-        return storedPassword != null && storedPassword.equals(password);
+    public boolean verifyAccount(String username) {
+       // Check if the provided username exists in the array
+        for (String storedUsername : usernames) {
+            if (storedUsername.equals(username)) {
+                return true; // Username is a match
+            }
+        }
+        return false; // No matching username found
     }
 }
 

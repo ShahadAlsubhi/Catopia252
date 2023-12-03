@@ -32,7 +32,7 @@ public class Shelter extends user{
         Client obj=new Client();
         //obj.main(null);
         String[] arg={};
-        Client.main(arg);
+       // Client.main(arg);
     }
 
     public ArrayList<String> getRecievedDonation() {
