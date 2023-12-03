@@ -7,6 +7,7 @@ package Catopia252Facade;
 
 import Catopia252.DonationFactory.Donation;
 import Catopia252.DonationFactory.DonationFactory;
+import Catopia252Proxy.Client;
 import Catopia252Strategy.MoneyDonationMethod;
 import Catopia252Strategy.MoneyDonationStrategy;
 
@@ -20,11 +21,15 @@ public class DonateToShelter {
     public static void donate(String username){
         System.out.println("What shelter do you want to donate to? ");
         String shelterName =  scanner.nextLine();
+        String[] arg={};
+        Client.main(arg);
         System.out.println("What type of donation will it be? (food, money or toys)");
         String donationType =  scanner.nextLine();
+        
 
         DonationFactory donationFactory = new DonationFactory();
         Donation dn = donationFactory.createDonation( donationType,  username,  shelterName);
+        dn.donate();
 
         if (dn.getDonationType().equalsIgnoreCase("money")){
             double amount = dn.getDonationAmount();
