@@ -5,8 +5,6 @@
 package Catopia252Facade;
 
 
-import Catopia252Builder.Cat2;
-import Catopia252Builder.Cat2.CatBuilder;
 import Catopia252Observer.Cat;
 import java.time.LocalDate;
 import java.util.*;
@@ -97,10 +95,10 @@ public class user {
     
     
     // a method to request adopting a cat from their owner while checking if the requirement are met
-    public static void adoptionReq(Cat2 cat, Individual user, user owner) {
+    public static void adoptionReq(Cat cat, Individual user, user owner) {
         Scanner input = new Scanner (System.in);
         // check if the conditions are met
-        if (!((user.getOwenedCats()).isEmpty()) == cat.isLikesCats() && user.isHasChildren() == cat.isLikesChildren()) {
+        if (!((user.getOwenedCats()).isEmpty()) == cat.isLikesCats() && user.isHasChildren() == cat.isLikesChildrens()) {
 
             if( owner instanceof Individual) {  //if the the user is adopting from an individual
 
@@ -139,11 +137,11 @@ public class user {
 
     }
 // a method for approving adoption reqest 
-    public static void adoptionApprove(Cat2 cat) {
+    public static void adoptionApprove(Cat cat) {
         cat.setAdoptionState("Adopted");  // set cat's adoption state
     }
 // a method for canceling adoption reqest
-    public static void adoptionCancel(Cat2 cat) {
+    public static void adoptionCancel(Cat cat) {
         cat.setAdoptionState("Available");  // set cat's adoption state
     }
     
@@ -262,7 +260,7 @@ public class user {
     
     //Donation method end here
     
-     public static void FilterCats(ArrayList<Cat2> cats){
+     public static void FilterCats(ArrayList<Cat> cats){
         System.out.println("filter cats by: "
                 + "1-Breed  2-Age  3-Gender  4-behavior"
                 + "5-Disabled  6-Likes children  7-Likes cats");
@@ -273,7 +271,7 @@ public class user {
             case 1:
                 System.out.println("what breed do you want to display ? ");
                 String breed=input.next();
-                ArrayList Filtered1=Cat2.FilterByBreed(breed,cats);
+                ArrayList Filtered1=Cat.FilterByBreed(breed,cats);
                  for(int i=0;i<Filtered1.size();i++){
                       System.out.println(Filtered1.get(i));
                       System.out.println("---------------------------------------------------------------------");
@@ -282,7 +280,7 @@ public class user {
             case 2:
                 System.out.println("what age do you want to display ? ");
                 int age=input.nextInt();
-                ArrayList Filtered2=Cat2.FilterByAge(age,cats);
+                ArrayList Filtered2=Cat.FilterByAge(age,cats);
                  for(int i=0;i<Filtered2.size();i++){
                       System.out.println(Filtered2.get(i));
                       System.out.println("---------------------------------------------------------------------");
@@ -290,8 +288,8 @@ public class user {
                 break;
             case 3:
                 System.out.println("what gender do you want to display ? ");
-                char gender=input.next().charAt(0);
-                ArrayList<Cat2> Filtered3=Cat2.FilterByGender(gender,cats);
+                String gender=input.next();
+                ArrayList<Cat> Filtered3=Cat.FilterByGender(gender,cats);
                  for(int i=0;i<Filtered3.size();i++){
                       System.out.println(Filtered3.get(i));
                       System.out.println("---------------------------------------------------------------------");
@@ -300,28 +298,28 @@ public class user {
             case 4:
                 System.out.println("what behavior do you to display ? ");
                 String behavior=input.next();
-                ArrayList Filtered4=Cat2.FilterByBehavior(behavior,cats);
+                ArrayList Filtered4=Cat.FilterByBehavior(behavior,cats);
                  for(int i=0;i<Filtered4.size();i++){
                       System.out.println(Filtered4.get(i));
                       System.out.println("---------------------------------------------------------------------");
                   }
                 break;
             case 5: 
-                ArrayList Filtered5=Cat2.FilterDisabled(cats);
+                ArrayList Filtered5=Cat.FilterDisabled(cats);
                 for(int i=0;i<Filtered5.size();i++){
                       System.out.println(Filtered5.get(i));
                       System.out.println("---------------------------------------------------------------------");
                   }
                 break;
             case 6:
-                ArrayList Filtered6=Cat2.FilterLikesChildren(cats);
+                ArrayList Filtered6=Cat.FilterLikesChildren(cats);
                  for(int i=0;i<Filtered6.size();i++){
                       System.out.println(Filtered6.get(i));
                       System.out.println("---------------------------------------------------------------------");
                   }
                 break;
             case 7:
-                ArrayList Filtered7=Cat2.FilterLikesCats(cats);
+                ArrayList Filtered7=Cat.FilterLikesCats(cats);
                  for(int i=0;i<Filtered7.size();i++){
                       System.out.println(Filtered7.get(i));
                       System.out.println("---------------------------------------------------------------------");
