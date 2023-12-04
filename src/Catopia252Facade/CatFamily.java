@@ -4,9 +4,27 @@
  */
 package Catopia252Facade;
 
+import Catopia252Builder.Cat;
+import Catopia252Composite.Kitten;
+import Catopia252Composite.SingleCat;
+
 
 public class CatFamily {
 
-
+  public void CreateBond(Cat cat ,Cat kitten){
+      SingleCat newCat = createNewCat(cat) ;
+      Kitten bondedKitten = new Kitten(kitten) ;
+      newCat.addKitten(bondedKitten);
+      bondedKitten.setKittenMother(newCat);
+}
+  
+   public SingleCat createNewCat(Cat cat){
+      SingleCat newCat = new SingleCat(cat);
+      return newCat ;
+  }
+   
+ // public void displayAllCatKittens(){
+      
+  //}
     
 }

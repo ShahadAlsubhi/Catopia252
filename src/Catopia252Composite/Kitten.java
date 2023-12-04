@@ -14,11 +14,12 @@ import java.util.ArrayList;
  */
 public class Kitten implements ComposeCat{
     
-    
-     private Cat cat ;
 
-    public Kitten(Cat cat) {
-        this.cat = cat;
+     private Cat kitten ;
+     private SingleCat mother ;
+
+    public Kitten(Cat kitten) {
+        this.kitten = kitten ;
     }
 
 
@@ -31,6 +32,14 @@ public class Kitten implements ComposeCat{
       public void RemoveKitten(Kitten kit){}
       
       public Kitten getChild(int i){ return null ;}
+      
+      public SingleCat getKittenMother(){
+          return this.mother ;
+      }
+      
+      public void setKittenMother(SingleCat cat){
+          this.mother = cat ;
+      }
 
 }
 
