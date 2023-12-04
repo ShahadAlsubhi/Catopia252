@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import Catopia252Observer.Cat; 
 
+
 public class Facade {
     public static void main(String[] args){
        
@@ -21,7 +22,6 @@ public class Facade {
         
         
         addCats(cats); //add cats to the array
-         Cat.addObservers(cats) ;
           Scanner input = new Scanner(System.in); //Scanner to read input
                 
             // Defining and creating Individual object as adopter with some random data assigned to it : 
@@ -49,8 +49,9 @@ public class Facade {
             System.out.println("2.Offer a cat for adoption");
             System.out.println("3. Filter avaible Cats");
             System.out.println("4. Donate to a Shelter");
-            System.out.println("5. Update Cat status");
-            System.out.println("6. Quit");
+            System.out.println("5. Subscribe to a cat");
+            System.out.println("6. Update Cat status");
+            System.out.println("7. Quit");
             
            do { // Reading the commands
             System.out.println("Please Enter your Choice: ");
@@ -87,14 +88,19 @@ public class Facade {
               
             }  
               else if (command.equalsIgnoreCase("5")) {
-                  cats.get(0).setSex("M");
-                   
-              
+                  System.out.println("Write the cat id that you want to get notification about : ");
+                  int id = input.nextInt();
+                  Cat.addObservers(cats.get(id)) ;
+                  
+                  System.out.println("You have successfully subscribed to the cat with the ID : " + cats.get(id).getCatId());
+                     
             } 
+              
+              
 
  
 
-        } while (!command.equalsIgnoreCase("6"));
+        } while (!command.equalsIgnoreCase("7"));
         System.out.println("thank you (=^･ｪ･^=))ﾉ彡☆");
         System.out.println("Quit.");
 }

@@ -8,6 +8,10 @@ package Catopia252Observer;
 import java.util.ArrayList;
 import java.util.List;
 
+
+import java.util.ArrayList;
+import java.util.List;
+
 // Observer interface
 interface Observer {
     void update();
@@ -24,7 +28,7 @@ interface Subject {
 class CatObserver implements Observer {
     private Cat cat;
 
-    public CatObserver(Cat cat) {
+    public CatObserver(Cat cat ) {
         this.cat = cat;
     }
 
@@ -35,27 +39,6 @@ class CatObserver implements Observer {
     }
 }
 
-// Concrete Subject class
-class CatSubject implements Subject {
-    private List<Observer> observers = new ArrayList<>();
-
-    @Override
-    public void attach(Observer observer) {
-        observers.add(observer);
-    }
-
-    @Override
-    public void detach(Observer observer) {
-        observers.remove(observer);
-    }
-
-    @Override
-    public void notifyObservers() {
-        for (Observer observer : observers) {
-            observer.update();
-        }
-    }
-}
 
 // Modified Cat class to implement Observer
 public class Cat implements Observer {
@@ -76,6 +59,7 @@ public class Cat implements Observer {
     private String adoptionReason;
     private ArrayList<String> adoptionUpdates;  
     private int adoptionFees;
+    private List<Observer> observers = new ArrayList<>();
     
      public Cat(int catId, String ownerId, String catName, String sex, int age, String breed, Cat bound, String behavior, boolean disabled, String medicalHistory, boolean likesCats, boolean likesChildrens, String adoptionState, String adoptionReason, ArrayList<String> adoptionUpdates, int adoptionFees) {
         this.catId = catId;
@@ -103,8 +87,7 @@ public class Cat implements Observer {
 
     public void setCatId(int catId) {
         this.catId = catId;
-        CatSubject temp = new CatSubject() ;
-        temp.notifyObservers() ;
+        this.notifyObservers() ;
     }
 
     public String getOwnerId() {
@@ -113,8 +96,7 @@ public class Cat implements Observer {
 
     public void setOwnerId(String ownerId) {
         this.ownerId = ownerId;
-        CatSubject temp = new CatSubject() ;
-        temp.notifyObservers() ;
+        this.notifyObservers() ;
     }
 
     public String getCatName() {
@@ -123,8 +105,7 @@ public class Cat implements Observer {
 
     public void setCatName(String catName) {
         this.catName = catName;
-        CatSubject temp = new CatSubject() ;
-        temp.notifyObservers() ;
+        this.notifyObservers() ;
     }
 
     public String getSex() {
@@ -133,8 +114,7 @@ public class Cat implements Observer {
 
     public void setSex(String sex) {
         this.sex = sex;
-        CatSubject temp = new CatSubject() ;
-        temp.notifyObservers() ;
+        this.notifyObservers() ;
         
     }
 
@@ -144,8 +124,7 @@ public class Cat implements Observer {
 
     public void setAge(int age) {
         this.age = age;
-        CatSubject temp = new CatSubject() ;
-        temp.notifyObservers() ;
+        this.notifyObservers() ;
     }
 
     public String getBreed() {
@@ -154,8 +133,7 @@ public class Cat implements Observer {
 
     public void setBreed(String breed) {
         this.breed = breed;
-        CatSubject temp = new CatSubject() ;
-        temp.notifyObservers() ;
+        this.notifyObservers() ;
     }
 
     public Cat getBound() {
@@ -164,8 +142,7 @@ public class Cat implements Observer {
 
     public void setBound(Cat bound) {
         this.bound = bound;
-        CatSubject temp = new CatSubject() ;
-        temp.notifyObservers() ;
+        this.notifyObservers() ;
     }
 
     public String getBehavior() {
@@ -174,8 +151,7 @@ public class Cat implements Observer {
 
     public void setBehavior(String behavior) {
         this.behavior = behavior;
-        CatSubject temp = new CatSubject() ;
-        temp.notifyObservers() ;
+        this.notifyObservers() ;
     }
 
     public boolean isDisabled() {
@@ -184,8 +160,7 @@ public class Cat implements Observer {
 
     public void setDisabled(boolean disabled) {
         this.disabled = disabled;
-        CatSubject temp = new CatSubject() ;
-        temp.notifyObservers() ;
+        this.notifyObservers() ;
     }
 
     public String getMedicalHistory() {
@@ -194,8 +169,7 @@ public class Cat implements Observer {
 
     public void setMedicalHistory(String medicalHistory) {
         this.medicalHistory = medicalHistory;
-        CatSubject temp = new CatSubject() ;
-        temp.notifyObservers() ;
+        this.notifyObservers() ;
     }
 
     public boolean isLikesCats() {
@@ -204,8 +178,7 @@ public class Cat implements Observer {
 
     public void setLikesCats(boolean likesCats) {
         this.likesCats = likesCats;
-        CatSubject temp = new CatSubject() ;
-        temp.notifyObservers() ;
+        this.notifyObservers() ;
     }
 
     public boolean isLikesChildrens() {
@@ -214,8 +187,7 @@ public class Cat implements Observer {
 
     public void setLikesChildrens(boolean likesChildrens) {
         this.likesChildrens = likesChildrens;
-        CatSubject temp = new CatSubject() ;
-        temp.notifyObservers() ;
+        this.notifyObservers() ;
     }
 
     public String getAdoptionState() {
@@ -224,8 +196,7 @@ public class Cat implements Observer {
 
     public void setAdoptionState(String adoptionState) {
         this.adoptionState = adoptionState;
-        CatSubject temp = new CatSubject() ;
-        temp.notifyObservers() ;
+        this.notifyObservers() ;
     }
 
     public String getAdoptionReason() {
@@ -234,8 +205,7 @@ public class Cat implements Observer {
 
     public void setAdoptionReason(String adoptionReason) {
         this.adoptionReason = adoptionReason;
-        CatSubject temp = new CatSubject() ;
-        temp.notifyObservers() ;
+        this.notifyObservers() ;
     }
 
     public ArrayList getAdoptionUpdates() {
@@ -244,8 +214,7 @@ public class Cat implements Observer {
 
    public void setAdoptionUpdates(ArrayList adoptionUpdates) {
         this.adoptionUpdates = adoptionUpdates;
-        CatSubject temp = new CatSubject() ;
-        temp.notifyObservers() ;
+        this.notifyObservers() ;
     }
 
     public int getAdoptionFees() {
@@ -361,13 +330,22 @@ public class Cat implements Observer {
         System.out.println("Cat " + catName + " has been updated!");
     }
     
-    public static void addObservers(ArrayList<Cat> cat){
-         CatSubject temp = new CatSubject() ;
-         CatObserver ob1 = new CatObserver(cat.get(0)) ;
-         CatObserver ob2 = new CatObserver(cat.get(0)) ;
-         CatObserver ob3 = new CatObserver(cat.get(0)) ;
-         temp.attach(ob1) ;
-         temp.attach(ob2) ;
-         temp.attach(ob3) ;
+    public static void addObservers(Cat cat){
+         CatObserver ob = new CatObserver(cat) ;
+         cat.attach(ob) ;
      }
+
+    public void attach(Observer observer) {
+        observers.add(observer);
+    }
+
+    public void detach(Observer observer) {
+        observers.remove(observer);
+    }
+
+    public void notifyObservers() {
+        for (Observer observer : observers) {
+            observer.update();
+        }
+    }
 }
