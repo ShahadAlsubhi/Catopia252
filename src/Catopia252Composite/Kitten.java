@@ -5,7 +5,7 @@
  */
 package Catopia252Composite;
 
-import Catopia252Builder.Cat;
+import Catopia252Observer.Cat;
 import java.util.ArrayList;
 
 /**

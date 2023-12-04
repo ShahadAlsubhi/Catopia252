@@ -4,9 +4,10 @@
  */
 package Catopia252Facade;
 
-import Catopia252Builder.Cat;
+
 import Catopia252Composite.Kitten;
 import Catopia252Composite.SingleCat;
+import Catopia252Observer.Cat;
 
 
 public class CatFamily {
@@ -19,7 +20,7 @@ public class CatFamily {
       return newCat ;
 }
   
-   public SingleCat createNewCat(Cat cat){
+   public SingleCat createNewCat(Catopia252Observer.Cat cat){
       SingleCat newCat = new SingleCat(cat);
       return newCat ;
   }

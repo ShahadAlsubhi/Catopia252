@@ -7,7 +7,7 @@ package Catopia252Builder;
 
 import java.util.ArrayList;
 
-public class Cat {
+public class Cat2 {
     // Attributes
     private String catID;
     private String name;
@@ -15,7 +15,7 @@ public class Cat {
     private int age;
     private String breed;
     private String ownerID;
-    private Cat bonded;
+    private Cat2 bonded;
     private String behavior;
     private boolean disabled;
     private String medicalHistory;
@@ -27,7 +27,7 @@ public class Cat {
     private int adoptionFees;
 
     // Private constructor to enforce the use of the builder
-    private Cat() {
+    private Cat2() {
         // Private constructor
     }
     public interface CatBuilder {
@@ -40,9 +40,9 @@ public class Cat {
     CatBuilder setAge(int age);
     CatBuilder breed(String breed);
     CatBuilder ownerID(String ownerId);
-    CatBuilder bonded(Cat objectBound);
+    CatBuilder bonded(Cat2 objectBound);
     CatBuilder setBreed(String breed);
-    CatBuilder setBound(Cat bound);
+    CatBuilder setBound(Cat2 bound);
     CatBuilder setBehavior(String behavior);
     CatBuilder setDisabled(Boolean disabled);
     CatBuilder setMedicalHistory(String medicalHistory);
@@ -53,7 +53,7 @@ public class Cat {
     CatBuilder setAdoptionUpdates(ArrayList<String> adoptionUpdates);
     CatBuilder setAdoptionFees(int adoptionFees);
         // Method to build the CatProfile object
-    Cat build();
+    Cat2 build();
 
 } 
     // Getter methods for Cat attributes
@@ -105,11 +105,11 @@ public class Cat {
         this.ownerID = ownerId;
     }
 
-    public Cat getBonded() {
+    public Cat2 getBonded() {
         return bonded;
     }
     
-    public void setBound(Cat bound) {
+    public void setBound(Cat2 bound) {
         this.bonded = bound;
     }
     
@@ -181,7 +181,7 @@ public class Cat {
     
          // filter functions start here : 
     
-    public static ArrayList<Cat> FilterByBreed(String breed,ArrayList<Cat> cats){
+    public static ArrayList<Cat2> FilterByBreed(String breed,ArrayList<Cat2> cats){
         ArrayList Filtered= new ArrayList();
         for(int i=0;i<cats.size();i++){
             if(cats.get(i).getBreed().equalsIgnoreCase(breed)){
@@ -191,7 +191,7 @@ public class Cat {
         return Filtered;
     }
     
-    public static ArrayList<Cat> FilterByAge(int age,ArrayList<Cat> cats){
+    public static ArrayList<Cat2> FilterByAge(int age,ArrayList<Cat2> cats){
         ArrayList Filtered= new ArrayList();
         for(int i=0;i<cats.size();i++){
             if(cats.get(i).getAge()==age){
@@ -201,8 +201,8 @@ public class Cat {
         return Filtered;
     }
     
-    public static ArrayList<Cat> FilterByGender(char gender,ArrayList<Cat> cats){
-        ArrayList<Cat> Filtered= new ArrayList();
+    public static ArrayList<Cat2> FilterByGender(char gender,ArrayList<Cat2> cats){
+        ArrayList<Cat2> Filtered= new ArrayList();
         for(int i=0;i<cats.size();i++){
             if(cats.get(i).getSex()== gender ){
                 Filtered.add(cats.get(i));
@@ -211,7 +211,7 @@ public class Cat {
         return Filtered;
     }
     
-    public static ArrayList<Cat> FilterByBehavior(String behavior,ArrayList<Cat> cats){
+    public static ArrayList<Cat2> FilterByBehavior(String behavior,ArrayList<Cat2> cats){
         ArrayList Filtered = new ArrayList();
         for(int i=0;i<cats.size();i++){
             if(cats.get(i).getBehavior().equalsIgnoreCase(behavior)){
@@ -221,7 +221,7 @@ public class Cat {
         return Filtered;
     }
     
-    public static ArrayList<Cat> FilterDisabled(ArrayList<Cat> cats){
+    public static ArrayList<Cat2> FilterDisabled(ArrayList<Cat2> cats){
         ArrayList Filtered = new ArrayList();
         for(int i=0;i<cats.size();i++){
             if(cats.get(i).isDisabled()==true){
@@ -231,7 +231,7 @@ public class Cat {
         return Filtered;
     }
     
-    public static ArrayList<Cat> FilterLikesChildren(ArrayList<Cat> cats){
+    public static ArrayList<Cat2> FilterLikesChildren(ArrayList<Cat2> cats){
         ArrayList Filtered = new ArrayList();
         for(int i=0;i<cats.size();i++){
             if(cats.get(i).isLikesChildren()==true){
@@ -241,7 +241,7 @@ public class Cat {
         return Filtered;
     }
     
-    public static ArrayList<Cat> FilterLikesCats(ArrayList<Cat> cats){
+    public static ArrayList<Cat2> FilterLikesCats(ArrayList<Cat2> cats){
          ArrayList Filtered = new ArrayList();
         for(int i=0;i<cats.size();i++){
             if(cats.get(i).isLikesCats()==true){
@@ -252,9 +252,9 @@ public class Cat {
     }
     // A method to search for cat’s bound by its name :
     
-    public Cat Searchbound(String boundName,ArrayList<Cat> cats){
-        Cat boundCat = null ;
-        for(Cat cat:cats){
+    public Cat2 Searchbound(String boundName,ArrayList<Cat2> cats){
+        Cat2 boundCat = null ;
+        for(Cat2 cat:cats){
             if(cat.getName().equalsIgnoreCase(boundName)){
                boundCat = cat ;
             }
@@ -263,15 +263,15 @@ public class Cat {
     }
     // filter functions end here 
  
-    public void addNewCattoDatabase(Cat cat,ArrayList<Cat> cats){
+    public void addNewCattoDatabase(Cat2 cat,ArrayList<Cat2> cats){
         cats.add(cat) ;
       }
     // CatBuilder class
     public static class ConcreateCatBuilder implements CatBuilder{
-        private Cat cat;
+        private Cat2 cat;
 
         public ConcreateCatBuilder(String catID, String name) {
-            cat = new Cat();
+            cat = new Cat2();
             cat.catID = catID;
             cat.name = name;
         }
@@ -296,7 +296,7 @@ public class Cat {
             return this;
         }
 
-        public CatBuilder bonded(Cat bonded) {
+        public CatBuilder bonded(Cat2 bonded) {
             cat.bonded = bonded;
             return this;
         }
@@ -346,7 +346,7 @@ public class Cat {
             return this;
         }
 
-        public Cat build() {
+        public Cat2 build() {
             return cat;
         }
 
@@ -381,7 +381,7 @@ public class Cat {
         }
 
         @Override
-        public CatBuilder setBound(Cat bound) {
+        public CatBuilder setBound(Cat2 bound) {
             throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
 

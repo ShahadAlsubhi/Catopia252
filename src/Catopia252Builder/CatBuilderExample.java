@@ -35,15 +35,15 @@ public class CatBuilderExample {
 
         // Optional: gather information about a bonded cat
         System.out.print("Is the cat bonded with another cat? (Y/N): ");
-        Cat bondedCat = null;
+        Cat2 bondedCat = null;
         if (scanner.nextLine().equalsIgnoreCase("Y")) {
             System.out.print("Enter bonded cat's ID: ");
             String bondedCatID = scanner.nextLine();
-            bondedCat = new Cat.CatBuilder(bondedCatID, "BondedCat").build();
+            bondedCat = new Cat2.CatBuilder(bondedCatID, "BondedCat").build();
         }
 
         // Create a Cat object using the CatBuilder
-        Cat cat = new Cat.CatBuilder(catID, name)
+        Cat2 cat = new Cat2.CatBuilder(catID, name)
                 .sex(sex)
                 .age(age)
                 .breed(breed)
