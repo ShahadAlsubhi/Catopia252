@@ -11,11 +11,12 @@ import Catopia252Composite.SingleCat;
 
 public class CatFamily {
 
-  public void CreateBond(Cat cat ,Cat kitten){
+  public SingleCat CreateBond(Cat cat ,Cat kitten ){
       SingleCat newCat = createNewCat(cat) ;
       Kitten bondedKitten = new Kitten(kitten) ;
       newCat.addKitten(bondedKitten);
       bondedKitten.setKittenMother(newCat);
+      return newCat ;
 }
   
    public SingleCat createNewCat(Cat cat){

@@ -38,6 +38,9 @@ public class Cat {
     CatBuilder setCatName(String catName);
     CatBuilder setSex(String sex);
     CatBuilder setAge(int age);
+    CatBuilder breed(String breed);
+    CatBuilder ownerID(String ownerId);
+    CatBuilder bonded(Cat objectBound);
     CatBuilder setBreed(String breed);
     CatBuilder setBound(Cat bound);
     CatBuilder setBehavior(String behavior);
@@ -264,7 +267,7 @@ public class Cat {
         cats.add(cat) ;
       }
     // CatBuilder class
-    public static abstract class ConcreateCatBuilder implements CatBuilder{
+    public static class ConcreateCatBuilder implements CatBuilder{
         private Cat cat;
 
         public ConcreateCatBuilder(String catID, String name) {
@@ -345,6 +348,86 @@ public class Cat {
 
         public Cat build() {
             return cat;
+        }
+
+        @Override
+        public CatBuilder setCatId(int catId) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public CatBuilder setOwnerId(String ownerId) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public CatBuilder setCatName(String catName) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public CatBuilder setSex(String sex) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public CatBuilder setAge(int age) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public CatBuilder setBreed(String breed) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public CatBuilder setBound(Cat bound) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public CatBuilder setBehavior(String behavior) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public CatBuilder setDisabled(Boolean disabled) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public CatBuilder setMedicalHistory(String medicalHistory) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public CatBuilder setLikesCats(Boolean likesCats) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public CatBuilder setLikesChildrens(Boolean likesChildrens) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public CatBuilder setAdoptionState(String adoptionState) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public CatBuilder setAdoptionReason(String adoptionReason) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public CatBuilder setAdoptionUpdates(ArrayList<String> adoptionUpdates) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public CatBuilder setAdoptionFees(int adoptionFees) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
     }
 }

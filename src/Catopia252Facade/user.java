@@ -184,12 +184,12 @@ public class user {
          int adoptionFees = input.nextInt();
          
          // Create a temp object of type Cat : 
-         Cat temp = new Cat.CatBuilder( catId , catName).build() ; // not used After that
+         Cat temp = new Cat.ConcreateCatBuilder( catId , catName).build() ; // not used After that
           // Setting the cat’s bound after searching for it : 
         Cat objectBound = temp.Searchbound(CatBoundName,cats) ;
         cats.get(cats.size()-1).setBound(objectBound);
            // Create Cat object :
-           Cat newCat = new Cat.CatBuilder( catId , catName)
+           Cat newCat = new Cat.ConcreateCatBuilder( catId , catName)
                 .sex(sex)
                 .age(age)
                 .breed(breed)

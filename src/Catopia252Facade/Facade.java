@@ -4,6 +4,7 @@
  */
 package Catopia252Facade;
 import Catopia252.DonationFactory.DonationFactory;
+import Catopia252Composite.SingleCat;
 import cattopia.Cat;
 import static cattopia.CatTopia.addCats;
 import cattopia.User;
@@ -13,9 +14,12 @@ import java.util.Scanner;
 public class Facade {
     public static void main(String[] args){
        
-         ArrayList<User> accounts = new  ArrayList<User>();
+        ArrayList<User> accounts = new  ArrayList<User>();
         ArrayList<Cat> cats = new  ArrayList<Cat>(100);
         DonationFactory donationFactory = new DonationFactory();
+        // Whenever we create a bond we should add the cat that has kitten here : 
+        ArrayList<SingleCat> catsHasKitten = new  ArrayList<SingleCat>(100);
+        
         
         addCats(cats); //add cats to the array
         
@@ -66,7 +70,8 @@ public class Facade {
                   cats.get(CatID-1).setAdoptionState("unavailable");
               
               }else if (command.equalsIgnoreCase("2")) {
-                //  accounts.get(0).OfferCat(cats);
+                 // accounts.get(0).OfferCat(cats);
+                  
                 
         
               
