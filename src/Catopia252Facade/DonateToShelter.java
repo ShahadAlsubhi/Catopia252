@@ -18,7 +18,7 @@ import java.util.Scanner;
 public class DonateToShelter {
     private static Scanner scanner = new Scanner(System.in);
 
-    public static void donate(String username){
+    public static void donate(String username,DonationFactory donationFactory){
         System.out.println("What shelter do you want to donate to? ");
         String shelterName =  scanner.nextLine();
         String[] arg={};
@@ -27,7 +27,7 @@ public class DonateToShelter {
         String donationType =  scanner.nextLine();
         
 
-        DonationFactory donationFactory = new DonationFactory();
+
         Donation dn = donationFactory.createDonation( donationType,  username,  shelterName);
         dn.donate();
 

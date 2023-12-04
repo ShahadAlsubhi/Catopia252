@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Catopia252Facade;
+import Catopia252.DonationFactory.DonationFactory;
 import cattopia.Cat;
 import static cattopia.CatTopia.addCats;
 import cattopia.User;
@@ -14,6 +15,7 @@ public class Facade {
        
          ArrayList<User> accounts = new  ArrayList<User>();
         ArrayList<Cat> cats = new  ArrayList<Cat>(100);
+        DonationFactory donationFactory = new DonationFactory();
         
         addCats(cats); //add cats to the array
         
@@ -76,7 +78,7 @@ public class Facade {
             }
                 else if (command.equalsIgnoreCase("4")) {
                   //  User.donate();
-                   DonateToShelter.donate(user.getName());
+                   DonateToShelter.donate(user.getName(), donationFactory);
               
             }  
 
